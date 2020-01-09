@@ -1,24 +1,26 @@
-use clap::{Arg, App, SubCommand};
-use std::io::{Read};
-
+use clap::{App, Arg, SubCommand};
 
 fn main() -> Result<(), std::io::Error> {
     let matches = App::new("Backgammon")
         .version("1.0")
         .author("Nilan Marktanner <nilan.marktanner@gmail.com>")
         .about("Does awesome things")
-        .subcommand(SubCommand::with_name("new")
-            .about("Starts a new game")
-            .version("1.0"))
-        .subcommand(SubCommand::with_name("move")
-            .about("Move token on specified point")
-            .version("1.0")
-            .arg(Arg::with_name("point")
-                .short("p")
-                .help("Point to move")))
-        .subcommand(SubCommand::with_name("print")
-            .about("Print the current status")
-            .version("1.0"))
+        .subcommand(
+            SubCommand::with_name("new")
+                .about("Starts a new game")
+                .version("1.0"),
+        )
+        .subcommand(
+            SubCommand::with_name("move")
+                .about("Move token on specified point")
+                .version("1.0")
+                .arg(Arg::with_name("point").short("p").help("Point to move")),
+        )
+        .subcommand(
+            SubCommand::with_name("print")
+                .about("Print the current status")
+                .version("1.0"),
+        )
         .get_matches();
 
     match matches.subcommand {
@@ -37,17 +39,11 @@ fn main() -> Result<(), std::io::Error> {
                     println!("Keep on playing!")
                 }
             }
-        },
-        Some(ref subcommand) if subcommand.name == "move" => {
-
-        },
-        Some(ref subcommand) if subcommand.name == "print" => {
-
-        },
-        Some(_) => {}
-        None => {
-            println!("none")
         }
+        Some(ref subcommand) if subcommand.name == "move" => {}
+        Some(ref subcommand) if subcommand.name == "print" => {}
+        Some(_) => {}
+        None => println!("none"),
     };
     println!("Done");
 
