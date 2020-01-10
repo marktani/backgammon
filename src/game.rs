@@ -21,7 +21,6 @@ pub enum GameResult {
     BlackGivesUp,
 }
 
-
 /// Represent a token on the backgammon board
 #[derive(PartialEq, PartialOrd, Eq, Copy, Clone, Debug, Hash)]
 pub struct Game {
