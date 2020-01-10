@@ -1,15 +1,21 @@
 use crate::board::Board;
-use crate::color::Color;
 
 /// Contains all actions supported within the game
 #[derive(Copy, Clone, PartialEq, PartialOrd, Debug, Eq)]
 pub enum Action {
-    // MakeMove(BackgammonMove),
-    MakeMove,
-    // OfferDraw(Color),
-    // AcceptDraw,
-    // DeclareDraw,
-    GiveUp(Color),
+    RollDie,
+    RollDice,
+
+    MoveToken,
+    SetToken,
+    BearOffToken,
+
+    Wait,
+
+    OfferRaise,
+    AcceptRaise,
+
+    GiveUp,
 }
 
 /// What was the result of this game?
@@ -22,7 +28,7 @@ pub enum GameResult {
 }
 
 /// Represent a token on the backgammon board
-#[derive(PartialEq, PartialOrd, Eq, Copy, Clone, Debug, Hash)]
+#[derive(Clone, Debug, Hash)]
 pub struct Game {
     board: Board,
 }
