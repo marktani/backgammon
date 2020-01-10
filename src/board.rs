@@ -16,33 +16,15 @@ impl Default for Board {
         for p in &points {
             let q = p.convert_by_color(Color::White);
             let input: (u8, Option<Color>) = match q.point {
-                24 => {
-                    (2, Some(Color::Black))
-                },
-                19 => {
-                    (5, Some(Color::White))
-                },
-                17 => {
-                    (3, Some(Color::White))
-                },
-                13 => {
-                    (5, Some(Color::Black))
-                },
-                12 => {
-                    (5, Some(Color::White))
-                },
-                8 => {
-                    (3, Some(Color::Black))
-                },
-                6 => {
-                    (5, Some(Color::Black))
-                },
-                1 => {
-                    (2, Some(Color::White))
-                },
-                _ => {
-                    (0, None)
-                }
+                24 => (2, Some(Color::Black)),
+                19 => (5, Some(Color::White)),
+                17 => (3, Some(Color::White)),
+                13 => (5, Some(Color::Black)),
+                12 => (5, Some(Color::White)),
+                8 => (3, Some(Color::Black)),
+                6 => (5, Some(Color::Black)),
+                1 => (2, Some(Color::White)),
+                _ => (0, None),
             };
             np.push((q, input.0, input.1));
         }
@@ -62,5 +44,4 @@ impl Board {
     pub fn side_to_move(&self) -> Option<Color> {
         self.side_to_move
     }
-
 }

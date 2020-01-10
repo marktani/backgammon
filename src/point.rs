@@ -101,28 +101,100 @@ impl Point {
 /// A list of every point on the backgammon board.
 ///
 pub const ALL_POINTS: [Point; 24] = [
-    Point{point: 1, color: Color::White},
-    Point{point: 2, color: Color::White},
-    Point{point: 3, color: Color::White},
-    Point{point: 4, color: Color::White},
-    Point{point: 5, color: Color::White},
-    Point{point: 6, color: Color::White},
-    Point{point: 7, color: Color::White},
-    Point{point: 8, color: Color::White},
-    Point{point: 9, color: Color::White},
-    Point{point: 10, color: Color::White},
-    Point{point: 11, color: Color::White},
-    Point{point: 12, color: Color::White},
-    Point{point: 13, color: Color::White},
-    Point{point: 14, color: Color::White},
-    Point{point: 15, color: Color::White},
-    Point{point: 16, color: Color::White},
-    Point{point: 17, color: Color::White},
-    Point{point: 18, color: Color::White},
-    Point{point: 19, color: Color::White},
-    Point{point: 20, color: Color::White},
-    Point{point: 21, color: Color::White},
-    Point{point: 22, color: Color::White},
-    Point{point: 23, color: Color::White},
-    Point{point: 24, color: Color::White},
+    Point {
+        point: 1,
+        color: Color::White,
+    },
+    Point {
+        point: 2,
+        color: Color::White,
+    },
+    Point {
+        point: 3,
+        color: Color::White,
+    },
+    Point {
+        point: 4,
+        color: Color::White,
+    },
+    Point {
+        point: 5,
+        color: Color::White,
+    },
+    Point {
+        point: 6,
+        color: Color::White,
+    },
+    Point {
+        point: 7,
+        color: Color::White,
+    },
+    Point {
+        point: 8,
+        color: Color::White,
+    },
+    Point {
+        point: 9,
+        color: Color::White,
+    },
+    Point {
+        point: 10,
+        color: Color::White,
+    },
+    Point {
+        point: 11,
+        color: Color::White,
+    },
+    Point {
+        point: 12,
+        color: Color::White,
+    },
+    Point {
+        point: 13,
+        color: Color::White,
+    },
+    Point {
+        point: 14,
+        color: Color::White,
+    },
+    Point {
+        point: 15,
+        color: Color::White,
+    },
+    Point {
+        point: 16,
+        color: Color::White,
+    },
+    Point {
+        point: 17,
+        color: Color::White,
+    },
+    Point {
+        point: 18,
+        color: Color::White,
+    },
+    Point {
+        point: 19,
+        color: Color::White,
+    },
+    Point {
+        point: 20,
+        color: Color::White,
+    },
+    Point {
+        point: 21,
+        color: Color::White,
+    },
+    Point {
+        point: 22,
+        color: Color::White,
+    },
+    Point {
+        point: 23,
+        color: Color::White,
+    },
+    Point {
+        point: 24,
+        color: Color::White,
+    },
 ];
