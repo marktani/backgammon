@@ -3,8 +3,8 @@ use crate::color::Color;
 /// Represent a point on the backgammon board
 #[derive(PartialEq, PartialOrd, Eq, Copy, Clone, Debug, Hash)]
 pub struct Point {
-    point: u8,
-    color: Color,
+    pub point: u8,
+    pub color: Color,
 }
 
 /// How many points are there?
@@ -27,6 +27,17 @@ pub const NUM_POINTS: usize = 24;
 // }
 
 impl Point {
+    /// Creates a new point with a specified color.
+    ///
+    /// ```
+    /// use backgammon::{Point, Color};
+    ///
+    /// let p = Point::new(1, Color::White);
+    /// let q = Point::new(13, Color::Black);
+    ///
+    /// assert_eq!(p.point, 1);
+    /// assert_eq!(q.point, 13);
+    /// ```
     pub fn new(point: u8, color: Color) -> Point {
         Point {
             point: point,
@@ -34,10 +45,21 @@ impl Point {
         }
     }
 
+    /// Transforms this point to a new point with the specified color.
+    ///
+    /// ```
+    /// use backgammon::{Point, Color};
+    ///
+    /// let p = Point::new(1, Color::White).convert_by_color(Color::Black);
+    /// let q = Point::new(13, Color::Black).convert_by_color(Color::White);
+    ///
+    /// assert_eq!(p.point, 24);
+    /// assert_eq!(q.point, 12);
+    /// ```
     pub fn convert_by_color(&self, color: Color) -> Point {
         if color == !self.color {
             Point {
-                point: 25 - self.point,
+                point: NUM_POINTS as u8 + 1 - self.point,
                 color: color,
             }
         } else {
@@ -49,5 +71,29 @@ impl Point {
         let point = self.convert_by_color(!self.color);
         self.color = point.color;
         self.point = point.point;
+    }
+
+    /// Generates an index based on this point.
+    /// The first point (index 0) is 1 for white and 24 for black.
+    ///
+    /// ```
+    /// use backgammon::{Point, Color};
+    ///
+    /// let p = Point::new(1, Color::White);
+    /// let q = Point::new(24, Color::Black);
+    /// let r = Point::new(12, Color::White);
+    /// let s = Point::new(13, Color::Black);
+    ///
+    /// assert_eq!(p.to_index(), 0);
+    /// assert_eq!(q.to_index(), 0);
+    /// assert_eq!(r.to_index(), 11);
+    /// assert_eq!(s.to_index(), 11);
+    /// ```
+    pub fn to_index(&self) -> usize {
+        if self.color == Color::White {
+            (self.point - 1) as usize
+        } else {
+            NUM_POINTS - (self.point as usize)
+        }
     }
 }
